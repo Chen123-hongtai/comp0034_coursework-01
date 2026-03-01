@@ -1,0 +1,7 @@
+commit_url: # Repository commit url, format will be https://github.com/ucl-comp0035/your-repo-name/commit/long-commit-hash
+app_dir: app.py  # replace with the location of the code that generates your app
+tests_dir: tests # replace with your test directory
+app_type: dash # Enter the application type: flask | streamlit | dash
+python: 3.12 # Enter python version if your code will not run on 3.13. Default for marking is version 3.13.
+port: # If you hardcoded a port that is not the default (flask 5000 | streamlit 8501 | dash 8050) enter it here
+run_command: python app.py # If not using the standard run command, enter it here (see README.md for the standard run command for each app)

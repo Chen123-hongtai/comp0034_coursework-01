@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "singapore-tourism-dashboard"
+version = "0.1.0"
+description = "Interactive web application for Singapore tourism data analysis"
+authors = [
+    {name = "Name", email = "email@ucl.ac.uk"}
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "dash>=2.14.0",                    
+    "dash-bootstrap-components>=1.5.0", 
+    "plotly>=5.18.0",               
+    "pandas>=2.0.0",                    
+    "SQLAlchemy>=2.0.0",                
+    "python-dotenv>=1.0.0",             
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.4.0",                 
+    "pytest-playwright>=0.4.0",       
+    "pytest-cov>=4.1.0",           
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]                  
