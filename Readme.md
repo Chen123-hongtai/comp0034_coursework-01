@@ -1,39 +1,51 @@
-# Global Tourism Recovery Dashboard
+# Global Tourism Recovery Dashboard (Full Stack)
 
-## 📌 Project Overview
-This project is an interactive, multi-page web application built with **Plotly Dash**. It is designed for policy analysts and stakeholders to dynamically explore post-pandemic tourism recovery data, simulate future growth scenarios, and manage datasets. 
+## Overview
+This project now includes:
+- A Dash front-end web app
+- A FastAPI back-end REST API
+- SQLite data storage accessed through SQLModel ORM
 
-The application is architected with a strict **Separation of Concerns (SoC)** principle, decoupling pure business logic from the UI presentation layer to ensure high testability and maintainability.
+The front-end pages fetch data from REST routes (with graceful fallback if API is not running).
 
-## ⚙️ Features
-* **Dashboard**: High-level KPI tracking and overall visitor trends.
-* **Market Explorer**: Deep dive into regional performance using interactive Treemaps and Bar charts.
-* **Scenario Simulator**: Mathematical forecasting tool decoupled into a pure Python function for deterministic modeling.
-* **Data Management**: Interface for uploading and previewing new datasets.
+## Tech Stack
+- Python 3.12+
+- Dash
+- FastAPI
+- SQLModel / SQLAlchemy
+- SQLite
+- Pytest
 
-## 🛠️ Prerequisites
-Ensure you have the following installed on your system:
-* Python 3.9 or higher (Tested on Python 3.12)
-* `pip` (Python package installer)
-
-## 🚀 Installation & Setup
-
-**1. Clone or extract the repository**
-Navigate to the root directory of the project in your terminal.
-
-**2. Create a virtual environment (Recommended)**
+## Install
 ```bash
-python -m venv venv
-# On Windows:
-venv\Scripts\activate
-# On macOS/Linux:
-source venv/bin/activate
-
-**3. Install project dependencies**
+python -m venv .venv
+.venv\Scripts\activate
 pip install -e ".[test]"
+```
 
-**4. Install Playwright browsers (Required for E2E Testing)**
-playwright install chromium
+## Run the Back-end API
+```bash
+fastapi dev backend/main.py
+```
+Default API base URL: `http://127.0.0.1:8000`
 
-Running the Application
+## Run the Front-end App
+In a second terminal:
+```bash
 python app.py
+```
+Dash URL: `http://localhost:8050`
+
+If your API is running on a different host/port, set:
+```bash
+set TOURISM_API_BASE_URL=http://127.0.0.1:8000
+```
+
+## Run Tests
+```bash
+python -m pytest
+```
+
+## API Docs
+After starting FastAPI:
+- Swagger UI: `http://127.0.0.1:8000/docs`
